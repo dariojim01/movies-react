@@ -6,6 +6,8 @@ import axios from 'axios';
 function App() {
 
   const [movies, setMovies] = useState([]);
+  const [selectGener, setSelectGener] = useState('');
+  const [genres, setGenres] = useState ([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -20,14 +22,39 @@ function App() {
     };
     fetchMovies();
 
+    axios.get(
+      'https://api.themoviedb.org/3/genre/movie/list?api_key=773f77edd60f1b3fba369bcefe530f36&language=es-ES'
+      ).then(resp =>{
+        setGenres(resp.data.genres);
+       //console.log(genres);
+      })
+      .catch(error => {
+        console.error('Error give genres: ', error);
+      });
+
+    
   }, []);
+
+  const changeGenre = (event) => {
+    setSelectGener(event.target.value)
+  };
 
 
   return (
     <div className="App">
       <h1>Getting Movies DJ 2024</h1>
+      <div className="filters">
+        <label htmlFor="genre">Escoger Género </label>
+        <select id="genre" value={selectGener} onChange={changeGenre}>
+        
+          {genres && genres.map(genre => (
+            <option key={genre.id} value={genre.id}>{genre.name}</option>
+          ))}
+        </select>
+      </div>
+     
       <div className="movies">
-        {movies && movies.map(movie => (
+        {movies.filter(movie => !selectGener|| movie.genre_ids.includes(parseInt(selectGener)) ).map(movie => (
 
           <div key={movie.id} className="movie">
           <img
