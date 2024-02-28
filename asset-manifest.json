@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dariojim01/movies-react/static/css/main.66f43539.css",
+    "main.js": "/dariojim01/movies-react/static/js/main.a1328390.js",
+    "static/js/453.99e3aac8.chunk.js": "/dariojim01/movies-react/static/js/453.99e3aac8.chunk.js",
+    "index.html": "/dariojim01/movies-react/index.html",
+    "main.66f43539.css.map": "/dariojim01/movies-react/static/css/main.66f43539.css.map",
+    "main.a1328390.js.map": "/dariojim01/movies-react/static/js/main.a1328390.js.map",
+    "453.99e3aac8.chunk.js.map": "/dariojim01/movies-react/static/js/453.99e3aac8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66f43539.css",
+    "static/js/main.a1328390.js"
+  ]
+}
